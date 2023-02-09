@@ -12,10 +12,10 @@ class LoginController {
     await this.loginService.login(login);
 
     const token = jwt.sign({ login }, JWT_SECRET, {
-      expiresIn: 'Id',
+      expiresIn: '1d',
     });
 
-    return res.status(200).json(token);
+    return res.status(200).json({ token });
   };
 }
 

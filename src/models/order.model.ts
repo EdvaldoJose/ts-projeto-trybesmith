@@ -11,7 +11,8 @@ export default class OrderModel {
   public async getAll(): Promise<Order[]> {
     const result = await this.connection.execute(`SELECT ord.id,
     ord.userId, JSON_ARRAYAGG(pro.id) as productsIds FROM Trybesmith
-      .Orders.Products as pro ON ord.id = pro.orderId GROUP BY ord.id ORDER BY ord.userId`);
+      .Orders as ord INNER JOIN Trybesmith.Products as pro ON ord
+      .id = pro.orderId GROUP BY ord.id ORDER BY ord.userId`);
 
     const [rows] = result;
     return rows as Order[];

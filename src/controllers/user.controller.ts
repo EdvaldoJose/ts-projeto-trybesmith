@@ -4,14 +4,14 @@ import UserService from '../services/user.service';
 
 const JWT_SECRET = 'senha_secreta';
 
-class UserController {
+class UsersController {
   constructor(private userService = new UserService()) { }
 
   public create = async (req: Request, res: Response) => {
-    const { body } = req.body;
+    const { body } = req;
 
     const token = jwt.sign({ body }, JWT_SECRET, {
-      expiresIn: 'Id',
+      expiresIn: '1d',
     });
 
     await this.userService.create(body);
@@ -19,4 +19,4 @@ class UserController {
   };
 }
 
-export default UserController;
+export default UsersController;
