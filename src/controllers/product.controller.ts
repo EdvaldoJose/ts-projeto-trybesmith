@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import ProductService from '../services/product.service';
 
-class ProductController {
+class ProductsController {
   constructor(
     private productService = new ProductService(),
   ) { }
@@ -19,4 +19,4 @@ class ProductController {
   };
 }
 
-export default ProductController;
+export default ProductsController;
