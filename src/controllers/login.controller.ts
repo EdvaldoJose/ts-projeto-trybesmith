@@ -5,7 +5,11 @@ import LoginService from '../services/login.service';
 const JWT_SECRET = 'senha_secreta';
 
 class LoginController {
-  constructor(private loginService = new LoginService()) { }
+  private loginService: LoginService;
+
+  constructor() {
+    this.loginService = new LoginService();
+  }
 
   public login = async (req: Request, res: Response) => {
     const login = req.body;

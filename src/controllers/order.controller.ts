@@ -2,7 +2,11 @@ import { Request, Response } from 'express';
 import OrderService from '../services/order.service';
 
 class OrderController {
-  constructor(private orderService = new OrderService()) {}
+  private orderService: OrderService;
+
+  constructor() {
+    this.orderService = new OrderService();
+  }
 
   public getAll = async (_req: Request, res: Response) => {
     const orders = await this.orderService.getAll();

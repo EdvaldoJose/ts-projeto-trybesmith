@@ -3,11 +3,11 @@ import ProductService from '../services/product.service';
 
 class ProductsController {
   private productService: ProductService;
-  
+
   constructor() {
     this.productService = new ProductService();
   }
-  
+
   public create = async (req: Request, res: Response) => {
     const product = req.body;
 

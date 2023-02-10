@@ -9,8 +9,9 @@ class UserService {
     this.model = new UserModel(connection);
   }
 
-  public create(body: User): Promise<User> {
-    return this.model.create(body);
+  async create(userDate: User): Promise<User> {
+    const createUser = await this.model.create(userDate);
+    return createUser;
   }
 }
 

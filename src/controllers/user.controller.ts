@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import UserService from '../services/user.service';
@@ -5,16 +6,20 @@ import UserService from '../services/user.service';
 const JWT_SECRET = 'senha_secreta';
 
 class UsersController {
-  constructor(private userService = new UserService()) { }
+  private userService: UserService;
+
+  constructor() {
+    this.userService = new UserService();
+  }
 
   public create = async (req: Request, res: Response) => {
-    const { body } = req;
-
-    const token = jwt.sign({ body }, JWT_SECRET, {
+    const { username, vocation, level, password } = req.body;
+    console.log(req.body);
+    const token = jwt.sign({ username, vocation, level, password }, JWT_SECRET, {
       expiresIn: '1d',
     });
 
-    await this.userService.create(body);
+    await this.userService.create({ username, vocation, level, password });
     return res.status(201).json({ token });
   };
 }
