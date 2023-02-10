@@ -1,4 +1,4 @@
-import { log } from 'console';
+// import { log } from 'console';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import UserService from '../services/user.service';
