@@ -6,7 +6,7 @@ class LevelMiddleware {
 
     console.log(typeof level);
 
-    if (level < 1) {
+    if (level > 1) {
       res.status(422)
         .json({
           message: '"level" must be greater than or equal to 1',

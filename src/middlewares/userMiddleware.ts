@@ -14,7 +14,7 @@ class UserMiddleware {
 
     const result = await this.loginService.login(loginUser);
 
-    if (!result) return res.status(401).json({ message: 'Username or password invalid' });
+    if (!result) return res.status(401).json({ message: 'username or password invalid' });
 
     next();
   };

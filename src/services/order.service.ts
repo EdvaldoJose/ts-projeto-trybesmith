@@ -13,6 +13,8 @@ class OrderService {
     const products = await this.model.getAll();
     return products;
   }
+
+  // novo campos de;
 }
 
 export default OrderService;

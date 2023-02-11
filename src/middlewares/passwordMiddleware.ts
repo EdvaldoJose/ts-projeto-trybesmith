@@ -5,7 +5,7 @@ class PasswordMiddleware {
     const { password } = req.body;
 
     if (!password) {
-      return res.status(400).json({ message: '"username" is required' });
+      return res.status(400).json({ message: '"password" is required' });
     }
 
     if (typeof password !== 'string') {

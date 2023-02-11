@@ -18,11 +18,6 @@ export default class OrderModel {
     GROUP BY orders.id`,
     );
       
-    //   `SELECT ord.id,
-    // ord.user_id, JSON_ARRAYAGG(pro.id) as productsIds FROM Trybesmith
-    //   .orders as ord INNER JOIN Trybesmith.products as pro ON
-    //   order_id = products, order_id GROUP BY ord.id ORDER BY ord.user_id`);
-
     const [rows] = result;
     return rows as Order[];
   }
