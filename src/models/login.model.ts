@@ -12,8 +12,8 @@ export default class LoginModel {
     const { username, password } = login;
 
     const [result] = await this.connection.execute(
-      `SELECT * FROM Trybesmith.users WHERE,
-      username = ? AND password = ?`,
+      `SELECT id ,username, vocation, level FROM Trybesmith
+      .users WHERE username=? AND password=?`,
       [username, password],
     );
 
